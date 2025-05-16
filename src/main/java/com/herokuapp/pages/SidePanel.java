@@ -1,5 +1,6 @@
 package com.herokuapp.pages;
 
+import com.herokuapp.alertsFrameWindow.JavaScriptAlertsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
