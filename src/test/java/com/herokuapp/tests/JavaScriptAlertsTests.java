@@ -21,7 +21,15 @@ public class JavaScriptAlertsTests extends TestBase {
 
     @Test
     public void alertWithConfirmTest() {
-        new JavaScriptAlertsPage(driver).clickAlertConfirm("Cancel").verifyResult("Cancel");
+        new JavaScriptAlertsPage(driver).clickAlertConfirm("Cancel")
+                .verifyResult("Cancel");
     }
+
+    @Test
+    public void sendMessageToAlertPromptTest(){
+        new JavaScriptAlertsPage(driver).sendMessageToAlert("QA46")
+                .verifyMessage("QA46");
+    }
+
 
 }

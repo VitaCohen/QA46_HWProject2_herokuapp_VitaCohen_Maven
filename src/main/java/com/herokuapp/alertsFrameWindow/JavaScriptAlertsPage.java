@@ -48,4 +48,21 @@ public class JavaScriptAlertsPage extends BasePage {
         Assert.assertTrue(confirmResult.getText().contains(text));
         return this;
     }
+
+    @FindBy(xpath = "//button[.='Click for JS Prompt']")
+    WebElement jsPromptBtn;
+
+    public JavaScriptAlertsPage sendMessageToAlert(String message) {
+        click(jsPromptBtn);
+        if (message != null) {
+            driver.switchTo().alert().sendKeys(message);
+            driver.switchTo().alert().accept();
+        }
+        return this;
+    }
+
+    public JavaScriptAlertsPage verifyMessage(String text) {
+        Assert.assertTrue(confirmResult.getText().contains(text));
+        return this;
+    }
 }
