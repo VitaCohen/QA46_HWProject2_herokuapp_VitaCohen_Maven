@@ -44,6 +44,11 @@ public class JavaScriptAlertsPage extends BasePage {
     @FindBy(id = "result")
     WebElement confirmResult;
 
+    public void isAlertPresent(String text) {
+        Assert.assertTrue(confirmResult.getText().contains(text));
+    }
+
+
     public JavaScriptAlertsPage verifyResult(String text) {
         Assert.assertTrue(confirmResult.getText().contains(text));
         return this;
@@ -65,4 +70,6 @@ public class JavaScriptAlertsPage extends BasePage {
         Assert.assertTrue(confirmResult.getText().contains(text));
         return this;
     }
+
+
 }

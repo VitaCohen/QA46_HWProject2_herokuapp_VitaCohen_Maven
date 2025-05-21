@@ -16,7 +16,7 @@ public class JavaScriptAlertsTests extends TestBase {
 
     @Test
     public void clickAlertTest() {
-        new JavaScriptAlertsPage(driver).clickForJSAlert();
+        new JavaScriptAlertsPage(driver).clickForJSAlert().isAlertPresent("You successfully clicked an alert");
     }
 
     @Test
