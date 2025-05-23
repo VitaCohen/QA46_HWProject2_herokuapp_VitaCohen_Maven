@@ -31,15 +31,28 @@ public class NestedFramesPage extends BasePage {
         return this;
     }
 
-   // @FindBy(xpath = "//frame[@name='frame-left']")
-    //WebElement left;
+    //@FindBy(xpath = "//frame[@name='frame-left']")
+    WebElement left;
 
     @FindBy(id = "content")
     WebElement middle;
-//    public NestedFramesPage verifyFrameByText(String text) {
-//        Assert.assertTrue(shouldHaveAText(middle, text, 5));
-//        return this;
-//    }
+
+        public NestedFramesPage switchToMiddleFrame() {
+        driver.switchTo().frame("frame-middle");
+        return this;
+    }
+    public NestedFramesPage verifyFrameByText(String text) {
+        Assert.assertTrue(shouldHaveAText(middle, text, 5));
+        return this;
+    }
+
+
+    public NestedFramesPage switchToTopFrame() {
+        driver.switchTo().frame("frame-top");
+        return this;
+    }
+
+
 
 
 }

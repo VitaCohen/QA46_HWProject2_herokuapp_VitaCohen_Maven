@@ -6,26 +6,31 @@ import com.herokuapp.pages.SidePanel;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class NestedFramesTests extends TestBase{
+public class NestedFramesTests extends TestBase {
 
     @BeforeMethod
-    public void precondition(){
+    public void precondition() {
         new HomePage(driver);
         new SidePanel(driver).selectNestedFrames();
     }
 
+
+
+
+@Test
+public void frameTestMiddle() {
+    new NestedFramesPage(driver).returnListOfFrames()
+            .switchToFrameByIndex(0)
+            //.switchToTopFrame()
+            .switchToMiddleFrame()
+            .verifyFrameByText("MIDDLE");
+
+}
+
 //    @Test
-//    public void frameTest(){
-//        new NestedFramesPage(driver).returnListOfFrames()
-//                .switchToFrameByIndex(0)
-//                .verifyFrameByText("MIDDLE");
+//    public void frameTest2(){
 //
 //    }
-
-    @Test
-    public void frameTest2(){
-
-    }
 
 
 
