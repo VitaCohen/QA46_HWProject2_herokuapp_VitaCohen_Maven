@@ -32,15 +32,16 @@ public class NestedFramesPage extends BasePage {
     }
 
     //@FindBy(xpath = "//frame[@name='frame-left']")
-    WebElement left;
+    // WebElement left;
 
     @FindBy(id = "content")
     WebElement middle;
 
-        public NestedFramesPage switchToMiddleFrame() {
+    public NestedFramesPage switchToMiddleFrame() {
         driver.switchTo().frame("frame-middle");
         return this;
     }
+
     public NestedFramesPage verifyFrameByText(String text) {
         Assert.assertTrue(shouldHaveAText(middle, text, 5));
         return this;
@@ -52,7 +53,16 @@ public class NestedFramesPage extends BasePage {
         return this;
     }
 
+    @FindBy(xpath = "//frame[@name='frame-bottom']")
+    WebElement frameBottom;
 
+    public NestedFramesPage switchToFrameByName() {
+        driver.switchTo().frame(frameBottom);
+        return this;
+    }
 
-
+    public NestedFramesPage verifyFrameByTitle(String text) {
+        Assert.assertTrue(frameBottom.getText().contains(text));
+        return this;
+    }
 }

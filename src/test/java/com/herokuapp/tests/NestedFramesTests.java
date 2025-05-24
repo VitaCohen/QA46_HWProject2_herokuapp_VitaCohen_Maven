@@ -15,25 +15,22 @@ public class NestedFramesTests extends TestBase {
     }
 
 
+    @Test
+    public void frameTestMiddle() {
+        new NestedFramesPage(driver).returnListOfFrames()
+                .switchToFrameByIndex(0)
+                //.switchToTopFrame()
+                .switchToMiddleFrame()
+                .verifyFrameByText("MIDDLE");
 
+    }
 
-@Test
-public void frameTestMiddle() {
-    new NestedFramesPage(driver).returnListOfFrames()
-            .switchToFrameByIndex(0)
-            //.switchToTopFrame()
-            .switchToMiddleFrame()
-            .verifyFrameByText("MIDDLE");
+    @Test
+    public void frameTest2(){
+        new NestedFramesPage(driver).switchToFrameByName()
+                .verifyFrameByTitle("BOTTOM");
 
-}
-
-//    @Test
-//    public void frameTest2(){
-//
-//    }
-
-
-
+    }
 
 
 }
